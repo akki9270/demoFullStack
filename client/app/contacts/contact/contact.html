@@ -1,0 +1,64 @@
+<md-dialog class="halfScreen">
+  <md-toolbar class="md-primary md-hue-1">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+
+        <div ng-bind="cont.contact._id ? 'Update Contact': 'Add Contact'"></div>
+        <md-button aria-label="close" class="md-icon-button m-t-10" ng-click="cont.fnCloseModal()">
+          <md-icon md-font-set="fa fa-lg fa-close" ></md-icon>
+        </md-button>
+
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+    <form name="contactForm" novalidate>
+      <div layout="column">
+        <md-input-container>
+          <md-icon md-font-set="fa fa-lg fa-user m-t-5" class="md-primary md-hue-1"></md-icon>
+          <label>Name</label>
+          <input required type="text" name="name" ng-model="cont.contact.name">
+
+          <div ng-messages="contactForm.name.$error">
+            <div ng-message="required">
+              This field is required
+            </div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <md-icon md-font-set="fa fa-lg fa-envelope m-t-5" class="md-primary md-hue-1"></md-icon>
+          <label>Email</label>
+          <input required name="email" type="email" ng-model="cont.contact.email">
+
+          <div ng-messages="contactForm.email.$error">
+            <div ng-message="required">
+              This field is required
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <md-icon md-font-set="fa fa-lg fa-phone m-t-5" class="md-primary md-hue-1"></md-icon>
+          <label>Phone</label>
+          <input required type="number" name="phone" ng-model="cont.contact.phone">
+
+          <div ng-messages="contactForm.phone.$error">
+            <div ng-message="required">
+              This field is required
+            </div>
+          </div>
+        </md-input-container>
+
+        <div layout="row" layout-align="end center">
+          <md-button aria-label="Save Contact" class="md-raised md-primary" type="submit"
+                     ng-click="contactForm.$valid && cont.fnSaveContact()">
+            <label ng-bind="cont.contact._id ? 'Update':'Save'"></label>
+          </md-button>
+          <md-button class="md-raised" ng-click="cont.fnCloseModal()">
+            <label>Cancel</label>
+          </md-button>
+        </div>
+
+      </div>
+    </form>
+
+  </md-content>
+</md-dialog>

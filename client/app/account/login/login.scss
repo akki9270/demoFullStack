@@ -1,0 +1,17 @@
+.login-card, .register-card {
+  min-width: 40%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (max-width:768px ) {
+  .login-card, .register-card {
+  min-width: 100%;
+  }
+}
+.love-message {
+  margin-top: 64px;
+  text-align: center;
+}
+//
+//

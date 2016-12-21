@@ -1,0 +1,62 @@
+
+<div layout="column" >
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar class="md-tall md-accent">
+
+      <div  layout="column" layout-padding class="profile-container">
+        <div flex></div>
+        <div layout-padding layout="column">
+          <div class="profile-name">{{ getCurrentUser().name }}</div>
+          <div class="profile-email">{{ getCurrentUser().email }}</div>
+        </div>
+      </div>
+
+    </md-toolbar>
+    <md-content>
+     <md-list ng-click="fnToggleLeft()">
+       <md-list-item ui-sref="main.contacts" ui-sref-active="active">
+          <md-icon md-font-set="fa fa-lg fa-book"></md-icon>
+         <p>Contacts</p>
+       </md-list-item>
+     </md-list>
+    </md-content>
+  </md-sidenav>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button ng-if="isLoggedIn()" ng-click="fnToggleLeft()" class="md-icon-button" aria-label="Settings">
+        <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
+      </md-button>
+      <h2>
+        <span>Demo fullstack</span>
+      </h2>
+      <span flex=""></span>
+      <md-menu>
+        <md-button ng-show="isLoggedIn()" aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+          <md-icon md-menu-origin md-svg-icon="assets/icons/dots-vertical.svg"></md-icon>
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item>
+            <md-button  ui-sref="main.settings">
+              <md-icon md-font-set="fa fa-lg fa-cog" ></md-icon>
+              Settings
+            </md-button>
+          </md-menu-item>
+
+          <md-menu-item ng-show="isLoggedIn()">
+            <md-button ng-click="logout()">
+              <md-icon md-font-set="fa fa-lg fa-power-off"></md-icon>
+              Logout
+            </md-button>
+          </md-menu-item>
+
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+
+  <ui-view layout="column" layout-fill ></ui-view>
+
+</div>
+
+
+

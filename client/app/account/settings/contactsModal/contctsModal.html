@@ -1,0 +1,25 @@
+<md-dialog class="halfScreen">
+  <md-toolbar>
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <div ng-bind="contactModal.currentUser.name"> </div>
+      <md-button aria-label="close" class="md-icon-button m-t-10" ng-click="contactModal.fnCloseModal()">
+        <md-icon md-font-set="fa fa-lg fa-close" ></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-content>
+    <md-list>
+      <md-list-item class="md-2-line" ng-repeat="contact in contactModal.contactsArray">
+        <div class="md-list-item-text">
+          <div ng-bind="contact.name"></div>
+          <p ng-bind="contact.email"></p>
+
+          <p ng-bind="contact.phone"></p>
+        </div>
+        <md-divider></md-divider>
+      </md-list-item>
+        <h3 layout="column" layout-align="center center" ng-if="contactModal.contactsArray.length == 0">No Contacts to Display</h3>
+    </md-list>
+  </md-content>
+</md-dialog>

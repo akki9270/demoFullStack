@@ -1,0 +1,35 @@
+/**
+ * App-wide Styles
+ */
+
+ .main-shell {
+   .profile-container {
+     height: 100%;
+     font-size: 14px;
+
+     .profile-name {
+       font-weight: 500;
+     }
+   }
+ }
+.active {
+  background-color: #7986cb;
+  color: #fff;
+}
+md-input-container{
+  margin-top: 0px !important;
+}
+.halfScreen {
+  width: 50% ;
+}
+:focus{
+  outline: none;
+}
+// Component styles are injected through grunt
+// injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'contacts/contacts.scss';
+@import 'main/main.scss';
+@import 'scss/margin-padding.scss';
+// endinjector

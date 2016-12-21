@@ -1,0 +1,42 @@
+<md-dialog class="halfScreen">
+  <md-toolbar >
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <div>{{userEdit.currentUser.name}}</div>
+      <md-button aria-label="close" class="md-icon-button" ng-click="userEdit.fnCloseModal()">
+        <md-icon md-font-set="fa fa-lg fa-close" class="m-t-5"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content layout-padding>
+      <form name="editUser">
+        <div layout="column">
+          <md-input-container>
+            <label>Name</label>
+            <md-icon md-font-set="fa fa-lg fa-user" class="md-primary"></md-icon>
+            <input type="text" ng-model="userEdit.currentUser.name">
+          </md-input-container>
+          <md-input-container>
+            <label>Email</label>
+            <md-icon md-font-set="fa fa-lg fa-envelope" class="md-primary"></md-icon>
+            <input type="email" ng-model="userEdit.currentUser.email">
+          </md-input-container>
+          <md-input-container>
+            <label>Role</label>
+            <md-icon md-font-set="fa fa-lg fa-briefcase" class="md-primary"></md-icon>
+            <md-select ng-model="userEdit.currentUser.role">
+              <md-option value="user">User </md-option>
+              <md-option value="guest">Guest</md-option>
+            </md-select>
+          </md-input-container>
+          <div layout="row" layout-align="end center">
+            <md-button class="md-raised md-primary" ng-click="userEdit.fnUpdateUser()">
+              Update
+            </md-button>
+            <md-button ng-click="userEdit.fnCloseModal()">
+              Cancel
+            </md-button>
+          </div>
+        </div>
+      </form>
+  </md-content>
+</md-dialog>

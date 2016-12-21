@@ -1,0 +1,34 @@
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+    <div>Contacts</div>
+    <md-button aria-label="Add Contact" class="md-fab md-mini md-primary" ng-click="contacts.fnAddContactModal()">
+      <md-icon md-font-set="fa fa-lg fa-plus m-t-10"></md-icon>
+      <md-tooltip md-direction="bottom">Add Contact</md-tooltip>
+    </md-button>
+  </div>
+
+</md-toolbar>
+<md-content ng-init="contacts.fnInit()" layout-margin>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="contact in contacts.contactsArray">
+      <div class="md-list-item-text">
+        <div ng-bind="contact.name"></div>
+        <p ng-bind="contact.email"></p>
+
+        <p ng-bind="contact.phone"></p>
+      </div>
+      <div class="md-secondary" layout="row">
+        <div ng-click="contacts.fnAddContactModal(contact)">
+          <md-icon md-font-set="fa fa-lg fa-pencil" class="md-primary"></md-icon>
+          <md-tooltip md-direction="bottom">Edit</md-tooltip>
+        </div>
+        <div>
+          <md-icon md-font-set="fa fa-lg fa-trash" class="md-warn" ng-click="contacts.fnDeleteContact($event,contact._id)"></md-icon>
+          <md-tooltip md-direction="bottom">Delete</md-tooltip>
+        </div>
+      </div>
+      <md-divider></md-divider>
+    </md-list-item>
+
+  </md-list>
+</md-content>
