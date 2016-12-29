@@ -5,7 +5,7 @@ angular.module('testfullstackApp')
 
   //ContactController.$inject = ['User','Auth','$mdDialog'];
 /** @ngInject*/
-  function ContactController(User, Auth, $mdDialog, socket, Contacts){
+  function ContactController(User, Auth, $mdDialog, socket, Contacts, toastr){
     var vm = this;
     vm.currentUser = Auth.getCurrentUser();
 
@@ -27,9 +27,9 @@ angular.module('testfullstackApp')
             .cancel('CANCEL');
           $mdDialog.show(confirm).then(function () {
             Contacts.remove({id: id}, function () {
-              //toastr.success('Contact removed successfully.');
+              toastr.success('Contact removed successfully.');
             }, function () {
-              //toastr.error('Contact not remove');
+              toastr.error('Contact not remove');
             });
           });
         };

@@ -8,6 +8,7 @@
       <form name="form" ng-submit="register.fnRegister(form)" novalidate>
         <div layout="column">
           <md-input-container>
+            <md-icon md-font-set="fa fa-lg fa-user md-primary m-t-5"></md-icon>
             <label>Name</label>
             <input required name="name" ng-model="register.user.name">
 
@@ -16,6 +17,7 @@
             </div>
           </md-input-container>
           <md-input-container>
+            <md-icon md-font-set="fa fa-lg fa-envelope md-primary m-t-5"></md-icon>
             <label>Email</label>
             <input required name="email" type="email" ng-model="register.user.email">
 
@@ -25,16 +27,19 @@
             </div>
           </md-input-container>
           <md-input-container>
+            <md-icon md-font-set="fa fa-lg fa-lock md-primary m-t-5"></md-icon>
             <label>Password</label>
             <input required type="password" name="password"
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ng-model="register.user.password">
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ng-minlength="6" ng-model="register.user.password">
 
             <div ng-messages="form.password.$error">
               <div ng-message="required">This is required.</div>
+              <div ng-message="minlength">Password must be 6 character long </div>
               <div ng-message="pattern">Password pattern not satisfied</div>
             </div>
           </md-input-container>
           <md-input-container>
+            <md-icon md-font-set="fa fa-lg fa-lock md-primary m-t-5"></md-icon>
             <label>Re-Type Password</label>
             <input required type="password" password-verify="register.user.password"
                    name="c_password" ng-model="register.user.c_password">
@@ -44,8 +49,8 @@
               <div ng-message="passwordVerify">Password must match.</div>
             </div>
           </md-input-container>
-          <div layout="row" layout-align="end center">
-            <md-button class="md-raised md-primary md-hue-1" type="submit">Sign up</md-button>
+          <div layout="column" >
+            <md-button class="md-raised md-primary md-hue-1 m-b-10" type="submit">Sign up</md-button>
             <md-button type="submit" class="md-raised" ui-sref="main.login">Login</md-button>
           </div>
         </div>
@@ -54,86 +59,3 @@
   </md-card>
 
 </md-content>
-
-<!-- <div ng-include="'components/navbar/navbar.html'"></div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>Sign up</h1>
-    </div>
-    <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="register(form)" novalidate>
-
-        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
-                                            'has-error': form.name.$invalid && submitted }">
-          <label>Name</label>
-
-          <input type="text" name="name" class="form-control" ng-model="user.name"
-                 required/>
-          <p class="help-block" ng-show="form.name.$error.required && submitted">
-            A name is required
-          </p>
-        </div>
-
-        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
-                                            'has-error': form.email.$invalid && submitted }">
-          <label>Email</label>
-
-          <input type="email" name="email" class="form-control" ng-model="user.email"
-                 required
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.email.$error.email && submitted">
-            Doesn't look like a valid email.
-          </p>
-          <p class="help-block" ng-show="form.email.$error.required && submitted">
-            What's your email address?
-          </p>
-          <p class="help-block" ng-show="form.email.$error.mongoose">
-            {{ errors.email }}
-          </p>
-        </div>
-
-        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
-                                            'has-error': form.password.$invalid && submitted }">
-          <label>Password</label>
-
-          <input type="password" name="password" class="form-control" ng-model="user.password"
-                 ng-minlength="3"
-                 required
-                 mongoose-error/>
-          <p class="help-block"
-             ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
-            Password must be at least 3 characters.
-          </p>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-            {{ errors.password }}
-          </p>
-        </div>
-
-        <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
-            Sign up
-          </button>
-          <a class="btn btn-default btn-lg btn-register" href="/login">
-            Login
-          </a>
-        </div>
-
-        <hr>
-        <div>
-          <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
-            <i class="fa fa-facebook"></i> Connect with Facebook
-          </a>
-          <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
-            <i class="fa fa-google-plus"></i> Connect with Google+
-          </a>
-          <a class="btn btn-twitter" href="" ng-click="loginOauth('twitter')">
-            <i class="fa fa-twitter"></i> Connect with Twitter
-          </a>
-        </div>
-      </form>
-    </div>
-  </div>
-  <hr>
-</div> -->

@@ -2,9 +2,9 @@
 
 angular.module('testfullstackApp')
   .controller('LoginCtrl', LoginController);
-LoginController.$inject = ['$scope', 'Auth', '$location', '$window'];
 
-function LoginController($scope, Auth, $location, $window) {
+/** @ngInject */
+function LoginController($scope, Auth, $location, $window, toastr) {
   var vm = this;
   vm.user = {};
   vm.errors = {};
@@ -17,11 +17,13 @@ function LoginController($scope, Auth, $location, $window) {
         email: vm.user.email,
         password: vm.user.password
       })
-        .then(function () {
+        .then(function (res) {
 // Logged in, redirect to home
+          toastr.success('Welcome '+ res.name);
           $location.path('/contacts');
         })
         .catch(function (err) {
+          toastr.error('Email and/or password incorrect','Login fail');
           $scope.errors.other = err.message;
         });
     }

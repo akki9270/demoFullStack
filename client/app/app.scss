@@ -4,7 +4,7 @@
 
  .main-shell {
    .profile-container {
-     height: 100%;
+     height: 80%;
      font-size: 14px;
 
      .profile-name {
@@ -17,7 +17,7 @@
   color: #fff;
 }
 md-input-container{
-  margin-top: 0px !important;
+  margin:0 0 10px 0 !important;
 }
 .halfScreen {
   width: 50% ;
@@ -28,7 +28,6 @@ md-input-container{
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
-@import 'admin/admin.scss';
 @import 'contacts/contacts.scss';
 @import 'main/main.scss';
 @import 'scss/margin-padding.scss';

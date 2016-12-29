@@ -19,6 +19,7 @@
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
@@ -64,7 +65,7 @@
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
-
+      <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 
         <!-- build:js({.tmp,client}) app/app.js -->
 
@@ -76,8 +77,6 @@
           <script src="app/account/settings/contactsModal/contactsModal.controller.js"></script>
           <script src="app/account/settings/settings.controller.js"></script>
           <script src="app/account/settings/userEditModal/userEditModal.controller.js"></script>
-          <script src="app/admin/admin.controller.js"></script>
-          <script src="app/admin/admin.js"></script>
           <script src="app/contacts/contact/contact.controller.js"></script>
           <script src="app/contacts/contacts.controller.js"></script>
           <script src="app/contacts/contacts.js"></script>
@@ -89,8 +88,6 @@
           <script src="components/directive/FileModelDirective.js"></script>
           <script src="components/directive/passwordVerifyDirective.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-          <script src="components/shell/dialog/dialog.controller.js"></script>
-          <script src="components/shell/shell.controller.js"></script>
           <script src="components/socket/socket.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->

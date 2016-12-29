@@ -13,6 +13,7 @@
       <form name="form" ng-submit="login.fnLogin(form)" novalidate>
         <div layout="column">
           <md-input-container>
+            <md-icon md-font-set="fa fa-lg fa-user md-primary m-t-5"></md-icon>
             <label>Email</label>
             <input required type="email" name="email" ng-model="login.user.email">
 
@@ -23,17 +24,20 @@
           </md-input-container>
 
           <md-input-container>
+            <md-icon md-font-set="fa fa-lg fa-lock md-primary m-t-5"></md-icon>
             <label>Password</label>
-            <input type="password" name="password"  ng-model="login.user.password"> <!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"-->
+            <input required type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                   ng-minlength="6" name="password"  ng-model="login.user.password">
 
             <div ng-messages="form.password.$error">
               <div ng-message="required">This is required.</div>
-              <div ng-message="pattern">Password pattern not satisfied </div>
+              <div ng-message="minlength">Password must be 6 character long </div>
+              <div ng-message="pattern">Password must contain one capital, small and numeric value </div>
             </div>
           </md-input-container>
 
-          <div layout="row" layout-align="end center">
-            <md-button class="md-raised md-primary md-hue-1" type="submit">Login</md-button>
+          <div layout="column" >
+            <md-button class="md-raised md-primary md-hue-1 m-b-10" type="submit">Login</md-button>
             <md-button type="submit" class="md-raised" ui-sref="main.register">Register</md-button>
           </div>
         </div>

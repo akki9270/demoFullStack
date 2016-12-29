@@ -4,7 +4,7 @@ angular.module('testfullstackApp')
   .controller('SettingsCtrl', SettingsController);
 
 /** @ngInject */
-function SettingsController(User, Auth, $mdDialog) {
+function SettingsController(User, Auth, $mdDialog, toastr) {
   var vm = this;
   vm.errors = {};
   vm.currentUser = Auth.getCurrentUser();
@@ -17,7 +17,7 @@ function SettingsController(User, Auth, $mdDialog) {
           vm.usersArray = data;
           vm.isUserLoading = false;
         }, function (err) {
-
+            toastr.error(err,'Error Fetching Data');
         })
       }
     })
@@ -25,7 +25,9 @@ function SettingsController(User, Auth, $mdDialog) {
 
   vm.fnUpdateUser = function () {
     User.update(vm.currentUser, function (data) {
-    }, function (error) {
+      toastr.success('Updated successfully')
+    }, function (err) {
+      toastr.err(err,'Error updating user');
     })
   };
 
@@ -33,13 +35,13 @@ function SettingsController(User, Auth, $mdDialog) {
 
     vm.submitted = true;
 
-    console.log(vm.currentUser)
+    console.log(vm.currentUser);
     Auth.changePassword(vm.currentUser.oldPassword, vm.currentUser.newPassword)
       .then(function (data) {
-        console.log(data);
-        vm.message = 'Password successfully changed.';
+        toastr.success('Password changed successfully')
       })
       .catch(function (err) {
+        toastr.err(err);
         changePassword.password.$setValidity('mongoose', false);
         vm.errors.other = 'Incorrect password';
         vm.message = '';
@@ -57,9 +59,9 @@ function SettingsController(User, Auth, $mdDialog) {
     $mdDialog.show(confirm).then(function () {
       User.remove({id: id}, function () {
         vm.fnGetUsers();
-        //toastr.success('Contact removed successfully.');
+        toastr.success('Contact removed successfully.');
       }, function () {
-        //toastr.error('Contact not remove');
+        toastr.error('Contact not removed');
       });
     });
   };
