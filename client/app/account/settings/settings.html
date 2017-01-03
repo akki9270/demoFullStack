@@ -92,14 +92,17 @@
     </div>
   </div>
 
-  <div flex ng-if="settings.currentUser.role == 'admin'">
+  <div flex ng-if="settings.isAdmin">
     <md-toolbar>
       <div class="md-toolbar-tools">
         Users
       </div>
     </md-toolbar>
     <md-content>
-      <md-list layout-padding>
+      <md-list layout-padding >
+
+          <h3 ng-if="settings.usersArray.length == 0" layout="column" layout-align="center center"><div>No Users to Display</div></h3>
+
         <md-list-item class="md-3-line" ng-repeat="user in settings.usersArray">
           <div class="md-list-item-text">
             <div>Name:<span ng-bind="user.name"></span></div>

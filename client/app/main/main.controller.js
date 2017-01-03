@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('testfullstackApp')
-  .controller('MainCtrl', function ($mdSidenav, $mdDialog, $scope, $location, Auth) {
+  .controller('MainCtrl',[ '$mdSidenav', '$mdDialog', '$scope', '$location', 'Auth',
+    function ($mdSidenav, $mdDialog, $scope, $location, Auth) {
 
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
@@ -27,4 +28,4 @@ angular.module('testfullstackApp')
     };
 
 
-  });
+  }]);

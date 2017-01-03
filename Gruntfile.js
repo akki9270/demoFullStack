@@ -281,7 +281,6 @@ module.exports = function (grunt) {
 
     // The following *-min tasks produce minified files in the dist folder
     imagemin: {
-      options: { cache: false },
       dist: {
         files: [{
           expand: true,
@@ -356,39 +355,39 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.client %>',
-          dest: '<%= yeoman.dist %>/public',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'bower_components/**/*',
-            'assets/images/{,*/}*.{webp}',
-            'assets/fonts/**/*',
-            'assets/icons/**/*',
-            'assets/iconsets/**/*',
-            'index.html'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/public/assets/images',
-          src: ['generated/*']
-        },{
             expand: true,
             dot: true,
-            cwd: '<%= yeoman.client %>/bower_components/font-awesome/',
+            cwd: '<%= yeoman.client %>',
+            dest: '<%= yeoman.dist %>/public',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+
+              'assets/images/{,*/}*.{webp}',
+              'assets/fonts/**/*',
+              'assets/icons/**/*',
+              'assets/iconsets/**/*',
+              'index.html'
+            ]
+          }, {
+            expand: true,
+            cwd: '.tmp/images',
+            dest: '<%= yeoman.dist %>/public/assets/images',
+            src: ['generated/*']
+          },{
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.client %>/bower_components/components-font-awesome/',
             src: ['fonts/*.*'],
             dest: '<%= yeoman.dist %>/public'
           }, {
-          expand: true,
-          dest: '<%= yeoman.dist %>',
-          src: [
-            'package.json',
-            'server/**/*'
-          ]
-        }]
+            expand: true,
+            dest: '<%= yeoman.dist %>',
+            src: [
+              'package.json',
+              'server/**/*'
+            ]
+          }]
       },
       styles: {
         expand: true,
@@ -516,15 +515,15 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.client %>/index.html': [
-               [
+            [
 
-                 '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
+              '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
 
-                 '!{.tmp,<%= yeoman.client %>}/app/app.js',
-                 '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
-                 '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js'
-               ]
+              '!{.tmp,<%= yeoman.client %>}/app/app.js',
+              '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
+              '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js'
             ]
+          ]
         }
       },
 
@@ -564,7 +563,7 @@ module.exports = function (grunt) {
           ]
         }
       }
-    },
+    }
   });
 
   // Used for delaying livereload until after server has restarted
@@ -658,9 +657,9 @@ module.exports = function (grunt) {
     }
 
     else grunt.task.run([
-      'test:server',
-      'test:client'
-    ]);
+        'test:server',
+        'test:client'
+      ]);
   });
 
   grunt.registerTask('build', [
