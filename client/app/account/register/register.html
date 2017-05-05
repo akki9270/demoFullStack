@@ -1,9 +1,21 @@
-<md-content class="md-padding">
+<md-content class=" back-ground" style="padding: 12px">
   <md-card class="register-card">
     <md-toolbar layout-align="center center" class="md-hue-1">
       <div class="md-headline">Register</div>
     </md-toolbar>
     <md-card-content>
+
+      <div layout="row" layout-align="center center" class="m-b-10">
+        <md-button aria-label="facebook login" class="md-fab md-mini md-primary" ng-click="register.fnLoginOauth('facebook')">
+          <md-icon md-font-set="fa fa-lg fa-facebook m-t-10"></md-icon>
+        </md-button>
+        <md-button aria-label="google login" class="red md-fab md-mini" ng-click="register.fnLoginOauth('google')">
+          <md-icon md-font-set="fa fa-lg fa-google-plus m-t-10"></md-icon>
+        </md-button>
+        <md-button aria-label="twitter login" class="md-fab md-mini twitter-color" ng-click="register.fnLoginOauth('twitter')">
+          <md-icon md-font-set="fa fa-lg fa-twitter m-t-10"></md-icon>
+        </md-button>
+      </div>
 
       <form name="form" ng-submit="register.fnRegister(form)" novalidate>
         <div layout="column">
@@ -50,7 +62,7 @@
             </div>
           </md-input-container>
           <div layout="column" >
-            <md-button class="md-raised md-primary md-hue-1 m-b-10" type="submit">Sign up</md-button>
+            <md-button class="md-raised md-primary md-hue-1 m-b-10" type="submit">Register</md-button>
             <md-button type="submit" class="md-raised" ui-sref="main.login">Login</md-button>
           </div>
         </div>

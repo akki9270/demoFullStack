@@ -2,7 +2,7 @@
 
 angular.module('testfullstackApp')
   .controller('RegisterCtrl', ['$scope', 'Auth', '$location', '$window',
-    function () {
+    function ($scope, Auth, $location, $window) {
       var vm = this;
       vm.user = {};
       vm.errors = {};

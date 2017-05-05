@@ -1,0 +1,86 @@
+<md-content layout-padding>
+  <div hide-xs layout="row" layout-sm="column" layout-xs="column" layout-align="center center">
+  <div class="md-display-1"> <span style="text-transform: capitalize">{{chart.chartType}}&nbsp;</span>chart representation</div>
+  <div class="md-display-1"> &nbsp;with {{chart.chartDataLength}} types of data.</div>
+</div>
+  <div id="chartView"></div>
+
+  <div layout="row" layout-sm="column" layout-xs="column" layout-align="center center">
+
+    <div show-sm show-xs layout="row" layout-align="center center">
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='line'"
+                 ng-click="chart.fnGenerateChart('line')">
+        Line
+      </md-button>
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='area'"
+                 ng-click="chart.fnGenerateChart('area')">
+        area
+      </md-button>
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='spline'"
+                 ng-click="chart.fnGenerateChart('spline')">
+        spline
+      </md-button>
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='area-spline'"
+                 ng-click="chart.fnGenerateChart('area-spline')">
+        area-spline
+      </md-button>
+    </div>
+
+    <div show-sm show-xs layout="row" layout-align="center center">
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='bar'"
+                 ng-click="chart.fnGenerateChart('bar')">
+        bar
+      </md-button>
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='step'"
+                 ng-click="chart.fnGenerateChart('step')">
+        Step
+      </md-button>
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='pie'"
+                 ng-click="chart.fnGenerateChart('pie')">
+        pie
+      </md-button>
+      <md-button class="md-primary md-raised"
+                 ng-disabled="chart.chartType=='donut'"
+                 ng-click="chart.fnGenerateChart('donut')">
+        Donut
+      </md-button>
+    </div>
+  </div>
+
+  <div layout="row" layout-align="center center">
+    <md-button class="md-primary md-raised"
+               ng-disabled="chart.chartDataLength == 10"
+               ng-click="chart.fnAddData()">
+      Add Data
+    </md-button>
+    <md-button class="md-primary md-raised"
+               ng-disabled="chart.chartDataLength == 2"
+               ng-click="chart.fnDeleteData()">
+      Remove Data
+    </md-button>
+  </div>
+
+  <!--<chart-view type="bar" cdata=""></chart-view>-->
+
+  <!--<chart-view type="" cdata=""></chart-view>-->
+
+  <!--<chart-view type="area" cdata=""></chart-view>-->
+
+  <!--<chart-view type="pie" cdata=""></chart-view>-->
+
+  <!--<chart-view type="spline" cdata=""></chart-view>-->
+
+  <!--<chart-view type="area-spline" cdata=""></chart-view>-->
+
+
+</md-content>
+
+
+

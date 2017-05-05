@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('testfullstackApp')
-  .controller('SettingsCtrl', ['User', 'Auth', '$mdDialog', 'toastr',
-    function (User, Auth, $mdDialog, toastr) {
+  .controller('SettingsCtrl', ['User', 'Auth', '$mdDialog', 'toastr', '$scope',
+    function (User, Auth, $mdDialog, toastr, $scope) {
       var vm = this;
       vm.errors = {};
       vm.currentUser = Auth.getCurrentUser();
@@ -19,7 +19,7 @@ angular.module('testfullstackApp')
                   vm.usersArray.push(obj);
                 }
               });
-              //vm.usersArray = data;
+
               vm.isUserLoading = false;
             }, function (err) {
               toastr.error(err, 'Error Fetching Data');
@@ -28,6 +28,11 @@ angular.module('testfullstackApp')
         })
       };
 
+      vm.fnChangePasswordCancel = function(){
+          vm.user = {};
+        $scope.changePassword.$setUntouched();
+        $scope.changePassword.$setPristine();
+      };
       vm.fnUpdateUser = function () {
         User.update(vm.currentUser, function (data) {
           toastr.success('Updated successfully')
@@ -40,13 +45,14 @@ angular.module('testfullstackApp')
 
         vm.submitted = true;
 
-        console.log(vm.currentUser);
-        Auth.changePassword(vm.currentUser.oldPassword, vm.currentUser.newPassword)
+        Auth.changePassword(vm.user.oldPassword, vm.user.newPassword)
           .then(function (data) {
             toastr.success('Password changed successfully')
+            vm.fnChangePasswordCancel();
           })
           .catch(function (err) {
             toastr.err(err);
+            vm.fnChangePasswordCancel();
             changePassword.password.$setValidity('mongoose', false);
             vm.errors.other = 'Incorrect password';
             vm.message = '';

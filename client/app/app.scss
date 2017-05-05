@@ -25,6 +25,20 @@ md-input-container{
 :focus{
   outline: none;
 }
+.red{
+  background-color: #FF0000 !important;
+}
+.twitter-color{
+  background-color: deepskyblue !important;
+}
+
+.back-ground{
+  //background: url('../assets/images/blurryCity.jpg');
+  background-size: cover;
+  opacity: 0.9;
+  height: 100%;
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';

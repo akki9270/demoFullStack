@@ -17,9 +17,10 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(client) app/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
-  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
-  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"/>
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/c3/c3.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css({.tmp,client}) app/app.css -->
@@ -29,6 +30,7 @@
   <!-- endinjector -->
   <!-- endbuild -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link rel="stylesheet" href="assets/css/vendor/c3.css">
 </head>
 <body ng-app="testfullstackApp">
 <!--[if lt IE 7]>
@@ -56,7 +58,8 @@
   ga('create', 'UA-XXXXX-X');
   ga('send', 'pageview');
 </script>
-
+<script type="text/javascript" src="assets/js/vendor/d3.min.js"></script>
+<script type="text/javascript" src="assets/js/vendor/c3.min.js"></script>
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -76,6 +79,8 @@
 <script src="bower_components/angular-socket-io/socket.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/c3/c3.js"></script>
 <!-- endbower -->
 <script src="socket.io-client/socket.io.js"></script>
 
@@ -83,7 +88,8 @@
 
 
 <!-- build:js({.tmp,client}) app/app.js -->
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjT93c7l1SvJlyiZh039rIVNE3b1pDR0c"
+        type="text/javascript"></script>
 <script src="app/app.js"></script>
 <!-- injector:js -->
 <script src="app/account/account.js"></script>
@@ -96,6 +102,8 @@
 <script src="app/contacts/contacts.controller.js"></script>
 <script src="app/contacts/contacts.js"></script>
 <script src="app/contacts/contacts.service.js"></script>
+<script src="app/demos/charts/charts.controller.js"></script>
+<script src="app/demos/map/maps.controller.js"></script>
 <script src="app/main/main.controller.js"></script>
 <script src="app/main/main.js"></script>
 <script src="components/auth/auth.service.js"></script>
@@ -106,5 +114,6 @@
 <script src="components/socket/socket.service.js"></script>
 <!-- endinjector -->
 <!-- endbuild -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
 </body>
 </html>

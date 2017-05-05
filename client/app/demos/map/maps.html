@@ -1,0 +1,19 @@
+<div class="m-t-20">
+
+    <md-input-container>
+      <input type="text" placeholder="latitude" ng-model="map.Latitude">
+    </md-input-container>
+    <md-input-container>
+      <input type="text" placeholder="longitude" ng-model="map.Longitude">
+    </md-input-container>
+    <md-button class=" md-raised md-primary m-b-40" ng-click="map.inItMap()">
+        Get Map
+    </md-button>
+  <md-button class=" md-raised md-primary m-b-40" ng-click="map.inItMap(5)">
+    Reset Zoom
+  </md-button>
+
+  <div id="mapContainer" style="height: 400px;width: 100%;margin: auto" ng-init="map.inItMap()"></div>
+</div>
+
+

@@ -9,6 +9,7 @@ angular.module('testfullstackApp', [
   'btford.socket-io',
   'ui.router',
   'ngMaterial',
+  'btford.socket-io',
   'toastr'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

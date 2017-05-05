@@ -1,7 +1,7 @@
 
-<div layout="column" >
+<div layout="column" flex>
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-    <md-toolbar class="md-tall md-accent">
+    <md-toolbar class="md-tall ">
 
       <div  layout="column" layout-padding class="profile-container">
         <div flex></div>
@@ -13,21 +13,44 @@
 
     </md-toolbar>
     <md-content>
-     <md-list ng-click="fnToggleLeft()">
-       <md-list-item ui-sref="main.contacts" ui-sref-active="active">
+      <md-list>
+        <md-list-item ng-click="fnToggleLeft()" ui-sref="main.contacts" ui-sref-active="active">
           <md-icon md-font-set="fa fa-lg fa-book"></md-icon>
-         <p>Contacts</p>
-       </md-list-item>
-     </md-list>
+          <p>Contacts</p>
+        </md-list-item>
+        <md-list-item ng-click="fnDemoClick()">
+          <md-icon md-font-set="fa fa-lg fa-book"></md-icon>
+          <p>Demo</p>
+          <div id="demoIcon" class="fa fa-chevron-right rotate"  ></div>
+        </md-list-item>
+
+        <div ng-if="isDemoClicked" ng-click="fnToggleLeft()">
+          <!--<md-list-item ui-sref="main.grids" ui-sref-active="active"  class="bgColor" >-->
+            <!--<p>Grids</p>-->
+          <!--</md-list-item>-->
+
+          <md-list-item ui-sref="main.charts" ng-click="fnDemoListItemClicked()" ui-sref-active="active" >
+            <p>Charts</p>
+          </md-list-item>
+          <md-list-item ui-sref="main.maps" ng-click="fnDemoListItemClicked()" ui-sref-active="active" >
+            <p>Maps</p>
+          </md-list-item>
+
+          <!--<md-list-item ng-click="fnDemoListItemClicked()" class="bgColor" >-->
+            <!--<p>Navigation</p>-->
+          <!--</md-list-item>-->
+        </div>
+      </md-list>
+
     </md-content>
   </md-sidenav>
   <md-toolbar>
-    <div class="md-toolbar-tools">
+    <div class="md-toolbar-tools" style="min-height: 20px">
       <md-button ng-if="isLoggedIn()" ng-click="fnToggleLeft()" class="md-icon-button" aria-label="Settings">
         <md-icon md-svg-icon="assets/icons/menu.svg"></md-icon>
       </md-button>
-      <h2>
-        <span>Demo fullstack</span>
+      <h2 ng-if="!isLoggedIn()">
+        <span>AngularJs 1.x and Angular-Material with MEAN</span>
       </h2>
       <span flex=""></span>
       <md-menu>
@@ -54,7 +77,7 @@
     </div>
   </md-toolbar>
 
-  <ui-view layout="column" layout-fill ></ui-view>
+  <ui-view layout="column" layout-fill flex></ui-view>
 
 </div>
 

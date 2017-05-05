@@ -92,7 +92,7 @@ exports.index = function(req, res) {
 
 // Get a single contacts
 exports.show = function(req, res) {
-  console.log('params: ',req.params.id)
+
   Contacts.findById(req.params.id, function (err, contacts) {
     if(err) { return handleError(res, err); }
     if(!contacts) { return res.status(404).send('Not Found'); }

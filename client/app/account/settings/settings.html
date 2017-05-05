@@ -57,7 +57,7 @@
               <md-input-container>
                 <md-icon md-font-set="fa fa-lg fa-lock" class="md-primary md-hue-1"></md-icon>
                 <label>Current Password</label>
-                <input required type="password" name="oldPassword" ng-model="settings.currentUser.oldPassword"
+                <input required type="password" name="oldPassword" ng-model="settings.user.oldPassword"
                        mongoose-error>
 
                 <div ng-messages="changePassword.oldPassword.$error">
@@ -68,19 +68,19 @@
               <md-input-container>
                 <md-icon md-font-set="fa fa-lg fa-key" class="md-primary md-hue-1"></md-icon>
                 <label>New Password</label>
-                <input required type="password" name="newPassword" ng-model="settings.currentUser.newPassword">
+                <input required type="password" name="newPassword" ng-model="settings.user.newPassword">
               </md-input-container>
               <md-input-container>
                 <md-icon md-font-set="fa fa-lg fa-key" class="md-primary md-hue-1"></md-icon>
                 <label>Re-type New Password</label>
-                <input required type="password" name="newPassword_c" ng-model="settings.currentUser.newPassword_c"
-                       password-verify="settings.currentUser.newPassword">
+                <input required type="password" name="newPassword_c" ng-model="settings.user.newPassword_c"
+                       password-verify="settings.user.newPassword">
               </md-input-container>
               <div layout="row" layout-align="end center">
                 <md-button class="md-primary md-raised" ng-click="settings.fnChangePassword();">
                   Save
                 </md-button>
-                <md-button class="md-raised">
+                <md-button class="md-raised" ng-click="settings.fnChangePasswordCancel()">
                   Cancel
                 </md-button>
               </div>
@@ -108,7 +108,7 @@
             <div>Name:<span ng-bind="user.name"></span></div>
             <p>Eamil: <span ng-bind="user.email"> </span></p>
 
-            <p>Role: <span ng-bind="user.role"></span></p>
+            <p>Role: <span ng-bind="user.role"></span> | Provider: <span ng-bind="user.provider"></span></p>
           </div>
           <div class="md-secondary" >
 

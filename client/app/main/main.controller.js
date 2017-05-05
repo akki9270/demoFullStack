@@ -7,6 +7,7 @@ angular.module('testfullstackApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+      $scope.isDemoClicked = false;
 
       $scope.logout = function() {
       Auth.logout();
@@ -19,6 +20,20 @@ angular.module('testfullstackApp')
 
     $scope.fnToggleLeft = function() {
       $mdSidenav('left').toggle();
+        var rotate = $('.rotate');
+        if (rotate.hasClass('fa-rotate-90')) {
+          rotate.removeClass('fa-rotate-90');
+          $scope.isDemoClicked = false;
+        }
+      };
+
+      $scope.fnDemoListItemClicked = function(){
+
+      };
+
+      $scope.fnDemoClick = function () {
+        $('.rotate').toggleClass('fa-rotate-90');
+        $scope.isDemoClicked = !$scope.isDemoClicked;
     };
 
     var originatorEv;
